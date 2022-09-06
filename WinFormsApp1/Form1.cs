@@ -1,9 +1,11 @@
+using ValidatorLibrary.Classes;
 using static WinFormsApp1.Classes.EnumHelper;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        public Customer Customer { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -24,8 +26,10 @@ namespace WinFormsApp1
         {
             Enum.TryParse(TypeComboBox.SelectedValue.ToString(), out CustomerType customerType);
 
-            MessageBox.Show(customerType == CustomerType.Select 
-                ? "Please make a selection" : $"Selected {customerType}");
+            Customer = new Customer() { Name = NameTextBox.Text, Type = customerType };
+
+            var (success, errorMessages) = ValidationHelper.IsValidEntity(Customer);
+            MessageBox.Show(success ? "Valid" : errorMessages);
         }
     }
 }
