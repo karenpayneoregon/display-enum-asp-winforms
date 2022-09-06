@@ -11,7 +11,6 @@ public enum CustomerType
     Select,
     [Display(Name = "Private")]
     PrivateSector,
-
     [Display(Name = "Public")]
     PublicSector
 }
