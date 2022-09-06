@@ -6,17 +6,16 @@
     <title>@ViewData["Title"] - Dropdown with enum</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @* WebApplication1\obj\Debug\net6.0\scopedcss\bundle *@
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Code sample: Dropdown via enum</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container text-primary">
+                <strong>Code sample: Dropdown via enum</strong>
             </div>
         </nav>
     </header>
@@ -25,18 +24,18 @@
             @RenderBody()
         </main>
     </div>
-    
-<div class="container mt-lg-5">
+
+    <div class="container mt-lg-5">
         <div class="card shadow-sm bg-primary" style="width: 26rem;">
-        <div class="card-body text-light">
-            An example for displaying <strong>enum</strong> with descriptions
+            <div class="card-body text-light">
+                An example for displaying <strong>enum</strong> with descriptions
+            </div>
         </div>
     </div>
-</div>
 
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container-fluid">
             &copy; 2022 KP
         </div>
     </footer>
