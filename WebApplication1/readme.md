@@ -26,3 +26,7 @@ public enum CustomerType
 
 
 ![Screenshot](assets/screenshot.png)
+
+</br>
+
+![Invalid](assets/invalid.png)
