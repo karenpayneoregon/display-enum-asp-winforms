@@ -12,20 +12,20 @@
         <input type="hidden" asp-for="Id" />
 
         <div class="form-group">
-            <label asp-for="Customer.Name" class="control-label"></label>
-            <input asp-for="Customer.Name" class="form-control" />
-            <span asp-validation-for="Customer.Name" class="text-danger"></span>
+            <label asp-for="Customer!.Name" class="control-label"></label>
+            <input asp-for="Customer!.Name" class="form-control" />
+            <span asp-validation-for="Customer!.Name" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Customer.Type" class="control-label mt-2"></label>
+            <label asp-for="Customer!.Type" class="control-label mt-2"></label>
 
-            <select asp-for="Customer.Type" class="form-control"
+            <select asp-for="Customer!.Type" class="form-control"
                     asp-items="Html.GetEnumSelectList<CustomerType>()">
                 @*<option>Select type ...</option>*@
             </select>
 
-            <span asp-validation-for="Customer.Type" class="text-danger"></span>
+            <span asp-validation-for="Customer!.Type" class="text-danger"></span>
         </div>
 
         <div class="form-group mt-2">
