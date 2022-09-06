@@ -30,10 +30,29 @@ Which gives us the following
 
 ![Asp Screenshot](assets/aspScreenshot.png)
 
+### Side notes
+
+Alternated default validation from standard in the box.
+
+Has a custom validator for `CustomerType` to ensure `Select` is not used for a post.
+
+```csharp
+public class RequiredTypeAttribute : RequiredAttribute
+{
+    public override bool IsValid(object? value)
+    {
+        if (value is null) return false;
+
+        if (value is CustomerType selection)
+        {
+            return selection != CustomerType.Select;
+        }
+        return false;
+    }
+}
+```
+
 ## Windows forms
-
-
-
 
 We will use the same model as in the ASP.NET Core sample but remove the Display attruibute with a Description attruibute.
 
