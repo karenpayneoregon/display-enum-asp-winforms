@@ -6,16 +6,15 @@ namespace WebApplication1.Pages
 {
     public class IndexModel : PageModel
     {
-        public string Message { get; set; }
+        public string? Message { get; set; }
         private readonly ILogger<IndexModel> _logger;
         
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-            
         }
         [BindProperty]
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
         public int Id { get; set; }
         public void OnGet()
         {
@@ -31,7 +30,7 @@ namespace WebApplication1.Pages
         {
             if (ModelState.IsValid)
             {
-                Message = $"Posted {Customer.Name}";
+                Message = $"Posted {Customer!.Name}";
             }
             
         }

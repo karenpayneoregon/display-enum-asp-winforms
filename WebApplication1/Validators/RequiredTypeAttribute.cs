@@ -5,13 +5,12 @@ namespace WebApplication1.Validators;
 
 public class RequiredTypeAttribute : RequiredAttribute
 {
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         if (value is null) return false;
 
-        if (value is CustomerType)
+        if (value is CustomerType selection)
         {
-            var selection = (CustomerType)value;
             return selection != CustomerType.Select;
         }
 
