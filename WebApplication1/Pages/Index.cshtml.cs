@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication1.Classes;
 using WebApplication1.Models;
 
 namespace WebApplication1.Pages
@@ -13,17 +14,17 @@ namespace WebApplication1.Pages
         {
             _logger = logger;
         }
+
         [BindProperty]
         public Customer? Customer { get; set; }
+
         public int Id { get; set; }
         public void OnGet()
         {
             Message = "Ready";
-            Customer = new Customer
-            {
-                Name = "Karen", 
-                Type = CustomerType.Select
-            };
+
+            // get a different customer each time
+            Customer = BogusOperations.Customers().FirstOrDefault();
         }
 
         public void OnPost()
