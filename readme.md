@@ -1,6 +1,6 @@
 # How to display an enum in WinForms ComboBox or ASP.NET Core Select
 
-This article demonstrates how to display `enum members` using English text rather than each enum member name and there is a comparison to how it’s done with ASP.NET Core which is a good deal easier than in Windows Forms.
+This article demonstrates how to display `enum members` using English text rather than each enum member name and there is a comparison to how it's done with ASP.NET Core which is a good deal easier than in Windows Forms.
 
 ## ASP.NET Core
 

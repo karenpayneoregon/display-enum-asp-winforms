@@ -1,3 +1,4 @@
+#nullable disable
 using ValidatorLibrary.Classes;
 using static WinFormsApp1.Classes.EnumHelper;
 
@@ -13,7 +14,7 @@ namespace WinFormsApp1
             Shown += Form1_Shown;
         }
 
-        private void Form1_Shown(object? sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
 
             TypeComboBox.DisplayMember = "Key";
