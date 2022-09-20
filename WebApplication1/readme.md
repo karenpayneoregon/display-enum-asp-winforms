@@ -1,6 +1,6 @@
 ﻿# Enum dropdown sample
 
-Simple example for showing an `enum` selection in a dropdown wich is used to compared to what is needed for Windows Forms using a ComboBox.
+Simple example for showing an `enum` selection in a dropdown which is used to compared to what is needed for Windows Forms using a ComboBox.
 
 ```csharp
 public class Customer
