@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Http.Extensions;
+
 namespace WebApplication1
 {
     public class Program
@@ -27,6 +29,7 @@ namespace WebApplication1
             app.UseAuthorization();
 
             app.MapRazorPages();
+
 
             app.Run();
         }
