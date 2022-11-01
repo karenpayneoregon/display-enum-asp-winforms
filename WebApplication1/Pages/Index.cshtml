@@ -29,7 +29,7 @@
         <div>
             @* ReSharper disable once UnknownCssClass *@
             <label asp-for="Customer!.Type" class="control-label mt-2"></label>
-            <select asp-for="Customer!.Type" class="form-control" asp-items="Html.GetEnumSelectList<CustomerType>()">
+            <select asp-for="Customer!.Type" class="form-select" asp-items="Html.GetEnumSelectList<CustomerType>()">
             </select>
         </div>
 
