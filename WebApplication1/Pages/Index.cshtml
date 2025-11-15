@@ -6,40 +6,39 @@
     ViewData["Title"] = "Enum drop down demo";
 }
 
-
 <style>
     .validation-summary-valid { display: none; }
 </style>
 
-<div asp-validation-summary="All" class="border border-dark bg-danger text-light mb-3" style="width: 26rem;">
-    <span class="m-lg-1 mt-1">Please correct the following</span>
-</div>
 
-<form asp-action="Edit" class="row">
+<form method="post" asp-page-handler="Edit" class="row">
     <div class="col-4">
 
         <input type="hidden" asp-for="Id"/>
 
         <div>
-            @* ReSharper disable once UnknownCssClass *@
             <label asp-for="Customer!.Name" class="control-label"></label>
             <input asp-for="Customer!.Name" class="form-control"/>
+            <span asp-validation-for="Customer!.Name" class="text-danger"></span>
         </div>
 
-        <div>
-            @* ReSharper disable once UnknownCssClass *@
-            <label asp-for="Customer!.Type" class="control-label mt-2"></label>
-            <select asp-for="Customer!.Type" class="form-select" asp-items="Html.GetEnumSelectList<CustomerType>()">
+        <div class="mb-3">
+            <label asp-for="Customer!.Type" class="form-label"></label>
+            <select asp-for="Customer!.Type"
+                    asp-items="Html.GetEnumSelectList<CustomerType>()"
+                    class="form-select">
+                <option value="">Select ...</option> 
             </select>
+            <span asp-validation-for="Customer!.Type" class="text-danger"></span>
         </div>
 
-        <div class="mt-5">
+        <div class="mt-5 mb-3">
             <input type="submit" value="Save  taxpayer" class="btn btn-primary"/>
         </div>
     </div>
     
     <div>
-        <p>@Model.Message</p>
+        <p>@Html.Raw(Model.Message)</p>
     </div>
 </form>
 

@@ -3,17 +3,29 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Validators;
 
-public class RequiredTypeAttribute : RequiredAttribute
+public class RequiredTypeAttribute : ValidationAttribute
 {
-    public override bool IsValid(object? value)
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        if (value is null) return false;
-
-        if (value is CustomerType selection)
+        // Invalid if null or not the right enum
+        if (value is not CustomerType selection || selection == CustomerType.Select)
         {
-            return selection != CustomerType.Select;
+            // Property display name (or property name if no [Display] on it)
+            var displayName = validationContext.DisplayName;
+
+            // Enum type name – what you want to show
+            var typeName = value is CustomerType s
+                ? s.ToString()
+                : nameof(CustomerType.Select);
+
+            // If you supplied ErrorMessage, ErrorMessageString will use it (incl. resources)
+            var messageTemplate = ErrorMessageString ?? "{0} ({1}) is not allowed.";
+
+            var message = string.Format(messageTemplate, displayName, typeName);
+
+            return new ValidationResult(message);
         }
 
-        return false;
+        return ValidationResult.Success;
     }
 }

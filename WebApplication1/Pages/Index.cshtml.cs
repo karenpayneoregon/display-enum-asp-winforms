@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Classes;
 using WebApplication1.Models;
@@ -31,9 +32,13 @@ namespace WebApplication1.Pages
         {
             if (ModelState.IsValid)
             {
-                Message = $"Posted {Customer!.Name}";
+                // This is the selected enum value from the <select>
+                var selectedType = Customer!.Type;
+
+                // If you need the underlying int:
+                var selectedIndex = (int)selectedType;
+                Message = $"Posted <strong>{Customer.Name}</strong> with type <strong>{selectedType}</strong> (index <strong>{selectedIndex}</strong>)";
             }
-            
         }
     }
 }

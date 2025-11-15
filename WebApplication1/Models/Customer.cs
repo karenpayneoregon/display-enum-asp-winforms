@@ -10,7 +10,7 @@ public class Customer
     public Guid Id { get; set; }
     [Required]
     public string Name { get; set; }
-    [RequiredType(ErrorMessage = "Customer{0} can not be select")]
+    [RequiredType(ErrorMessage = "Customer {0} '{1}' can not be selected.")]
     public CustomerType Type { get; set; }
     public override string ToString() => Name;
 }
