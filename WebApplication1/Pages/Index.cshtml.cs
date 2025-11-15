@@ -37,7 +37,17 @@ namespace WebApplication1.Pages
 
                 // If you need the underlying int:
                 var selectedIndex = (int)selectedType;
-                Message = $"Posted <strong>{Customer.Name}</strong> with type <strong>{selectedType}</strong> (index <strong>{selectedIndex}</strong>)";
+
+                /*
+                 * Security note: only do this with content you generate on the server (like your formatted message).
+                 * Never feed untrusted user input through Html.Raw unless you sanitize it first, or you’re asking for XSS trouble.
+                 *
+                 * @Html.Raw(Model.Message)
+                 * 
+                 */
+                Message = $"Posted <strong>{Customer.Name}</strong> with type " +
+                          $"<strong>{selectedType}</strong> " +
+                          $"(index <strong>{selectedIndex}</strong>)";
             }
         }
     }
